@@ -1,25 +1,21 @@
 #include <iostream>
-using namespace std;
-int factorial(int n) {
-    if (n < 0) {
-        throw "Факторіал від'ємного числа неможливо обчислити";
-    }
-    int result = 1;
-    for (int i = 2; i <= n; ++i) {
-        result *= i;
-    }
-    return result;
-}
 int main() {
-    int n;
-    cout << "Введіть число n: ";
-    cin >> n;
-    try {
-        int fact = factorial(n);
-        cout << "Факторіал " << n << " = " << fact << endl;
+    char ch;
+    int spaces = 0, tabs = 0, newlines = 0;
+    // Зчитування символів зі стандартного вводу
+    while (std::cin.get(ch)) {
+        // Підрахунок кількості пробілів, табуляцій і нових рядків
+        if (ch == ' ') {
+            spaces++;
+        } else if (ch == '\t') {
+            tabs++;
+        } else if (ch == '\n') {
+            newlines++;
+        }
     }
-    catch (const char* message) {
-        cerr << "Помилка: " << message << endl;
-    }
+    // Виведення результатів у стандартний вивід
+    std::cout << "Пробіли: " << spaces << std::endl;
+    std::cout << "Табуляції: " << tabs << std::endl;
+    std::cout << "Нові рядки: " << newlines << std::endl;
     return 0;
 }
